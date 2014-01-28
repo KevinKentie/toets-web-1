@@ -197,6 +197,7 @@
 			
 			UserClass::insert_into_userClass($post_array, $id);
 			self::send_activation_email($post_array, $hash_from_tmp_password);
+			self::send_activation_email2($post_array, $hash_from_tmp_password);
 		}
 		
 		public static function send_activation_email($post_array, $password)
@@ -237,7 +238,35 @@
 			//$headers .= "Content-type: text/plain; charset=iso-8859-1\r\n";
 			$headers .= "Content-type: text/html; charset=iso-8859-1\r\n";
 			mail($to, $subject, $message, $headers);
+			}
+			
+			public static function send_activation_email2($post_array)
+		{
+			$to2 = $post_array['email'];
+			$subject2 = "tweede website FotoSjaak";
+			
+			$message2 = "<p><u>Geachte heer/mevrouw <b>".
+					   $post_array['firstname']." ".
+					   $post_array['infix']." ".
+					   $post_array['surname']."</b></u></p>";
+			$message2 .= "Bedankt voor het regestreren!!<br>";
+			$message2 .= "Met vriendelijke groet,<br>";
+			$message2 .= "Sjaak de Vries<br>";
+			$message2 .= "Uw fotograaf";	
+			
+			$headers2  = "From: info@fotosjaak.nl\r\n";
+			$headers2 .=	"Reply-To: info@fotosjaak.nl\r\n";
+			$headers2 .= "Cc: sjaak@fotosjaak.nl\r\n";
+			$headers2 .= "Bcc: admin@fotosjaak.nl\r\n";
+			$headers2 .= "X-mailer: PHP/".phpversion()."\r\n";
+			$headers2 .= "MIME-version: 1.0\r\n";
+			//$headers .= "Content-type: text/plain; charset=iso-8859-1\r\n";
+			$headers2 .= "Content-type: text/html; charset=iso-8859-1\r\n";
+			mail($to2, $subject2, $message2, $headers2);
 		}
+		
+
+		
 
 		public static function update_password_in_login($email,
 											 			$password)
