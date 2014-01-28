@@ -25,11 +25,12 @@ div#container
 
 div#banner
 {
-	background-image:url("../images/fotojaak-banner.png");
+	background-image:url("../images/Banner-600x200.jpg");
 	background-repeat:no-repeat;
 	background-color:orange;
-	height:170px;
-	border-radius:25px;
+	height:200px;
+	width:600
+	border-radius:10px;
 }
 
 div#footer
