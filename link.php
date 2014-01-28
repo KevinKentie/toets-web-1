@@ -26,6 +26,11 @@
 						  			</a>
 						  		</li>"; 
 				break;
+				case 'coworker':
+					echo "<li>
+							<a href='index.php?content=pandabeerpage'>pandabeer</a>					
+						  </li>";
+				break;
 				case 'administrator':
 					echo "<li>
 							<a href=''>admin-link</a>
